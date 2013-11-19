@@ -11,28 +11,14 @@ var player = new Kinetic.Group({
   y: 100
 });
 
-var rad = 50;
+var base = 30;
 
-var playerBody = new Kinetic.RegularPolygon({
-  x:0,
-  y:0,
-  sides:3,
-  radius: rad,
+var playerBody = new Kinetic.Polygon({
+  points: [[-base*9/8,0],[base*9/8,-base],[base*9/8,base]],
   fill: 'green',
   stroke: 'black',
-  strokeWidth: rad/10
+  strokeWidth: 5
 });
-
-/*
-var playerBody = new Kinetic.Circle({
-  x: 0,
-  y: 0,
-  radius: rad,
-  fill: 'green',
-  stroke: 'black',
-  strokeWidth: rad/10
-});
-*/
 
 var text = new Kinetic.Text({
   x: 10,
@@ -42,16 +28,6 @@ var text = new Kinetic.Text({
   text: '',
   fill: 'black'
 });
-
-/*
-var playerArrow = new Kinetic.Line({
-  points: [[0,0],[-rad+1,0],[-rad*2/3+1,-rad/4],[-rad+1,0],[-rad*2/3+1,rad/4]],
-  stroke: 'black',
-  strokeWidth: rad/10,
-  lineJoin: 'round',
-  lineCap: 'round'
-});
-*/
 
 var border = new Kinetic.Rect({
   x: 0,
@@ -63,7 +39,6 @@ var border = new Kinetic.Rect({
 });
 
 player.add(playerBody);
-//player.add(playerArrow);
 
 layer.add(player);
 layer.add(text);
